@@ -10,25 +10,25 @@ interface Props {
 
 const Modal = ({ modal, setModal, children }: Props) => {
 
-    const modalRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-      //Close menu when click outside the div
-      function handleClickOutside(event: any) {
-        if (modalRef.current && !modalRef.current.contains(event.target)) 
-        setModal(false)
-      }
-    document.addEventListener("mousedown", handleClickOutside)}, [])
+  useEffect(() => {
+    //Close menu when click outside the div
+    function handleClickOutside(event: any) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) 
+      setModal(false)
+    }
+  document.addEventListener("mousedown", handleClickOutside)}, [])
 
-    const DOMElement = (
-      <div className={[modal ?? s.closed, s.container].join(' ')}>
-        <div ref={modalRef} className={[modal ?? s.closedCard, s.card].join(' ')}>
-          { children }
-        </div>
+  const DOMElement = (
+    <div className={[modal ? '' : s.closed, s.container].join(' ')}>
+      <div ref={modalRef} className={[modal ? '' : s.closedCard, s.card].join(' ')}>
+        { children }
       </div>
-    )
+    </div>
+  )
         
-    return createPortal(DOMElement, document.getElementById('modal') as HTMLDivElement);
+  return createPortal(DOMElement, document.getElementById('modal') as HTMLDivElement);
 }
 
 export default Modal

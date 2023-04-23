@@ -13,3 +13,7 @@ body {
   background: #202020;
   margin: 0;
 }
+
+.Toastify{
+  z-index: 99999999;
+}
