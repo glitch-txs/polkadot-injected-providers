@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import s from './styles.module.scss'
 
 interface Props {
   modal: boolean,
@@ -20,10 +21,8 @@ const Modal = ({ modal, setModal, children }: Props) => {
     document.addEventListener("mousedown", handleClickOutside)}, [])
 
     const DOMElement = (
-      <div className={ (modal ? "" : "opacity-0 hidden") + 
-      "z-50 m-0 p-0 fixed inset-0 w-full h-screen flex justify-center items-center bg-[background-color: rgba(0, 0, 0, 0.5)]"}>
-        <div ref={modalRef} className={ (modal ? "" : "opacity-0 hidden translate-y-[-100vh] transition-all duration-1000") + 
-          "bg-slate-800 w-full max-w-fit max-h-full rounded-2xl flex justify-center items-center flex-col absolute p-2 text-3xl" }>
+      <div className={[modal ?? s.closed, s.container].join(' ')}>
+        <div ref={modalRef} className={[modal ?? s.closedCard, s.card].join(' ')}>
           { children }
         </div>
       </div>

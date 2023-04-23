@@ -1,0 +1,16 @@
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  gap: 8px;
+  height: 60px;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 1.5rem;
+  border: #202020 solid 1px;
+  &:hover{
+    background-color: #202020;
+  }
+}
