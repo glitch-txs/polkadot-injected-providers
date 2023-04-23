@@ -1,3 +1,6 @@
+import { walletsInfo } from '@/constant/wallets';
+import { accountsStore } from '@/store/accountsStore';
+import dynamic from 'next/dynamic';
 import React, { useEffect } from 'react'
 
 declare global{
@@ -8,20 +11,22 @@ declare global{
   }
 }
 
+const DyamicModal = dynamic(()=>import('../modal/Modal'), {ssr: false})
+
 const Wallets = () => {
 
-  async function getInjected(){
-    if(!window.injectedWeb3) return
-    const injected = await window.injectedWeb3.talisman.enable()
-    console.log("awsd", injected.signer)
-  }
-
-  useEffect(()=>{
-    getInjected()    
-  },[])
+  const connect = accountsStore((s)=>s.connect)
    
   return (
-    <div>wallets</div>
+    <DyamicModal modal={true} setModal={(a: boolean)=>{}}>
+      {
+        Object.entries(walletsInfo).map(([k, v], i)=>(
+          <div key={k} >
+            <button onClick={()=>connect(k)}>{v.name}</button>
+          </div>
+        ))
+      }
+    </DyamicModal>
   )
 }
 

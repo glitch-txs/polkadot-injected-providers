@@ -7,22 +7,22 @@ type Account = {
 
 interface IWallet {
   accounts:{
-    get:(t?: any)=> Promise<Account[]>
-    subscribe:()=>void
+    get:(t?: unknown)=> Promise<Account[]>
+    subscribe:()=>unknown
   }
   metadata:{
-    get:()=>void
-    provide:()=>void
+    get:()=>unknown
+    provide:()=>unknown
   }
   provider:{
     isClonable: boolean
     isConnected: boolean
   }
   signer:{
-    decryptMessage: ()=>{}
-    encryptMessage: ()=>{}
-    signPayload: ()=>{}
-    signRaw: ()=>{}
+    decryptMessage: ()=>unkown
+    encryptMessage: ()=>unkown
+    signPayload: ()=>unkown
+    signRaw: ()=>unkown
   }
 }
 
