@@ -1,3 +1,4 @@
+import Wallets from '@/components/Wallets'
 import dynamic from 'next/dynamic'
 import { Inter } from 'next/font/google'
 
@@ -11,6 +12,7 @@ export default function Home() {
       <DyamicModal modal={true} setModal={(a: boolean)=>{}}>
         hello
       </DyamicModal>
+      <Wallets/>
     </main>
   )
 }
