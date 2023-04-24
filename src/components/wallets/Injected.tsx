@@ -12,7 +12,7 @@ const Injected = () => {
   useEffect(()=>{
     if(window.injectedWeb3){
       for(const wallet in window.injectedWeb3){
-        // if(walletsInfo[wallet]) continue
+        if(walletsInfo[wallet]) continue
         setInjectedWallets(p => [...p.filter(p => !p.includes(wallet)), wallet])
       }
     }

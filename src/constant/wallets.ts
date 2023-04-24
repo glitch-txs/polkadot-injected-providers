@@ -42,14 +42,5 @@ export const walletsInfo: WalletInfo = {
       width:32,
       heigh:32
     }
-  },
-  "nova":{
-    name: "Nova",
-    install:'https://novawallet.io/',
-    logo:{
-      src:nova,
-      width:28,
-      heigh:28
-    }
   }
 }
