@@ -1,3 +1,4 @@
 ## Basic Wallets Modal for Dotsama
 
-> TODO: Save connection to localStore.
+- [ ] Handle errors for unknown injected wallets.
+- [ ] Save connection to localStore.
