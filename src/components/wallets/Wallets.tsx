@@ -21,7 +21,7 @@ type Props = {
   setModal: (modal: boolean)=> void
 }
 
-const DyamicModal = dynamic(()=>import('../modal/Modal'), {ssr: false})
+const DyamicModal = dynamic(()=>import('../../modal/Modal'), {ssr: false})
 
 const Wallets = ({modal, setModal}: Props) => {
 
